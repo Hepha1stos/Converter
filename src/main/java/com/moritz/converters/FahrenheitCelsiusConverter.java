@@ -17,3 +17,4 @@ public class FahrenheitCelsiusConverter extends Converter<Double> {
         LOGGER.info("Converted {}Fahrenheit into {}°", input, result);
         return result;
     }
+}
