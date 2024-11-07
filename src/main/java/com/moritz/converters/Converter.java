@@ -1,4 +1,4 @@
-package com.moritz;
+package com.moritz.converters;
 
 abstract class Converter<T> {
 
