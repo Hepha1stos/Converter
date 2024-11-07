@@ -8,9 +8,7 @@
             </PatternLayout>
         </File>
         <!-- Optional: Konsole weiterhin nutzen -->
-        <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss} %-5level %logger{36} - %msg%n"/>
-        </Console>
+        
     </Appenders>
     <Loggers>
         <!-- Root Logger definiert, der beide Appender verwendet -->
