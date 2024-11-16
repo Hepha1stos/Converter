@@ -59,6 +59,7 @@ public final class Main {
             System.out.println("4: Fuß in Meter");
             System.out.println("0: Das Programm beenden");
 
+            System.out.print("\nAuswahl: ");
             int selection = scanner.nextInt();
 
             if (selection == EXIT_PROGRAM) {
@@ -84,10 +85,11 @@ public final class Main {
             }
 
             System.out.print(
-                    "Gib den Wert ein, den du konvertieren möchtest: ");
+                    "\nGib den Wert ein, den du konvertieren möchtest: "
+            );
             Double input = scanner.nextDouble();
             Double result = manager.convert(input);
-            System.out.println("Ergebnis: " + result);
+            System.out.println("\n Ergebnis: " + result + "\n");
         }
     }
 }

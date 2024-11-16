@@ -123,32 +123,29 @@
             </plugin>
             
             <!-- Checkstyle Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.6.0</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.puppycrawl.tools</groupId>
-                        <artifactId>checkstyle</artifactId>
-                        <version>10.11.0</version>
-                    </dependency>
+            <plugin>    
+                <groupId>org.apache.maven.plugins</groupId>    
+                <artifactId>maven-checkstyle-plugin</artifactId>    
+                <version>3.5.0</version>    
+                <configuration>        
+                    <configLocation></configLocation>        
+                    <failOnViolation>true</failOnViolation>    
+                </configuration>    
+                <executions>        
+                    <execution>            
+                        <phase>validate</phase>            
+                        <goals>                
+                            <goal>check</goal>            
+                        </goals>        
+                    </execution>    
+                </executions>    
+                <dependencies>        
+                    <dependency>            
+                        <groupId>com.puppycrawl.tools</groupId>            
+                        <artifactId>checkstyle</artifactId>            
+                        <version>[8.18,)</version>        
+                    </dependency>    
                 </dependencies>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <configuration>
-                            <configLocation>src/main/resources/google_checks.xml</configLocation>
-                            <consoleOutput>true</consoleOutput>
-                            <failsOnError>true</failsOnError>
-                            <linkXRef>true</linkXRef>
-                        </configuration>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             
             <!-- SpotBugs Plugin -->
@@ -170,23 +167,6 @@
         </plugins>
     </build>
 
-    <!-- Reporting Plugins -->
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.6.0</version>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>checkstyle</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-        </plugins>
-    </reporting>
 
     <!-- Profiles -->
     <profiles>
