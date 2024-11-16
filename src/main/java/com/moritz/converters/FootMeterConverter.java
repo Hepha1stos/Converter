@@ -5,16 +5,31 @@ import org.apache.logging.log4j.Logger;
 
 public class FootMeterConverter extends Converter<Double> {
 
-    private static final Logger LOGGER = LogManager.getLogger(FootMeterConverter.class);
+    /**
+     * Instanziiere den LOGGER.
+     */
+    private static final Logger LOGGER
+            = LogManager.getLogger(FootMeterConverter.class);
 
+    /**
+     * Umrechnungsfaktor.
+     */
+    private static final double FOOT = 0.3048;
+
+    /**
+     * Konstruktor der Klasse.
+     */
     public FootMeterConverter() {
         LOGGER.info("New instance of {}  ", this.getClass().getSimpleName());
     }
 
+    /**
+     * Konvertiere Fuß in Meter.
+     */
     @Override
-    public Double convert(Double input) {
+    public Double convert(final Double input) {
         try {
-            Double result = input * 0.3048;
+            Double result = input * FOOT;
             LOGGER.info("Converted {}Foot into {}Meter", input, result);
             return result;
         } catch (Exception e) {

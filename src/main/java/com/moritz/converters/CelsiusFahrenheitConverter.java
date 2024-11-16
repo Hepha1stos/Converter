@@ -5,16 +5,41 @@ import org.apache.logging.log4j.Logger;
 
 public class CelsiusFahrenheitConverter extends Converter<Double> {
 
-    private static final Logger LOGGER = LogManager.getLogger(CelsiusFahrenheitConverter.class);
+    /**
+     * Instanz des Loggers.
+     */
+    private static final Logger LOGGER
+            = LogManager.getLogger(CelsiusFahrenheitConverter.class);
 
+    /**
+     * OFFSET.
+     */
+    private static final int OFFSET = 32;
+
+    /**
+     * Zähler.
+     */
+    private static final int ZAEHLER = 9;
+
+    /**
+     * Nenner.
+     */
+    private static final int NENNER = 5;
+
+    /**
+     * Konstruktor der Klasse.
+     */
     public CelsiusFahrenheitConverter() {
         LOGGER.info("New instance of {}  ", this.getClass().getSimpleName());
     }
 
+    /**
+     * Konvertiere den übergebenden Wert.
+     */
     @Override
-    public Double convert(Double input) {
+    public Double convert(final Double input) {
         try {
-            Double result = (input * 9 / 5) + 32;
+            Double result = (input * ZAEHLER / NENNER) + OFFSET;
             LOGGER.info("Converted {}° into {}Fahrenheit", input, result);
             return result;
         } catch (Exception e) {
