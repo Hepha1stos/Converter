@@ -1,6 +1,8 @@
 package com.moritz;
 
 import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
+
 
 import com.moritz.converters.CelsiusFahrenheitConverter;
 import com.moritz.converters.ConvertManager;
@@ -48,7 +50,7 @@ public final class Main {
      * @param args die Befehlszeilenargumente
      */
     public static void main(final String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         ConvertManager manager = new ConvertManager(null);
 
         while (true) {
