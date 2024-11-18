@@ -153,6 +153,14 @@
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>4.8.6.4</version>
+                <executions>        
+                    <execution>            
+                        <phase>validate</phase>            
+                        <goals>                
+                            <goal>check</goal>            
+                        </goals>        
+                    </execution>    
+                </executions>    
             </plugin>
 
             <!-- Exec Plugin -->
