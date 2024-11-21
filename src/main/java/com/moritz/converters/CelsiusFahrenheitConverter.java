@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * Konvertiert Celcius in Fahrenheit.
  */
+@SuppressWarnings("PMD.GuardLogStatement")
 public class CelsiusFahrenheitConverter extends Converter<Double> {
 
   /**
@@ -32,18 +33,20 @@ public class CelsiusFahrenheitConverter extends Converter<Double> {
    * Konstruktor der Klasse.
    */
   public CelsiusFahrenheitConverter() {
+    super();
     LOGGER.info("New instance of {}  ", this.getClass().getSimpleName());
   }
 
   @Override
   public Double convert(final Double input) {
+    final Double result;
     try {
-      Double result = (input * ZAEHLER / NENNER) + OFFSET;
+      result = (input * ZAEHLER / NENNER) + OFFSET;
       LOGGER.info("Converted {}° into {}Fahrenheit", input, result);
-      return result;
-    } catch (Exception e) {
+    } catch (NumberFormatException  e) {
       LOGGER.error("Error during conversion of {} Celsius", input, e);
-      return null;
+      throw e;
     }
+    return result;
   }
 }

@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * Konvertiert imperiale Fuß in metrische Meter.
  */
+@SuppressWarnings("PMD.GuardLogStatement")
 public class FootMeterConverter extends Converter<Double> {
 
   /**
@@ -23,6 +24,7 @@ public class FootMeterConverter extends Converter<Double> {
    * Konstruktor der Klasse.
    */
   public FootMeterConverter() {
+    super();
     LOGGER.info("New instance of {}  ", this.getClass().getSimpleName());
   }
 
@@ -31,13 +33,14 @@ public class FootMeterConverter extends Converter<Double> {
    */
   @Override
   public Double convert(final Double input) {
+    final Double result;
     try {
-      Double result = input * FOOT;
+      result = input * FOOT;
       LOGGER.info("Converted {}Foot into {}Meter", input, result);
-      return result;
-    } catch (Exception e) {
+    } catch (NumberFormatException e) {
       LOGGER.error("Error during conversion of {} Foot: {}", input, e);
-      return null;
+      throw e;
     }
+    return result;
   }
 }

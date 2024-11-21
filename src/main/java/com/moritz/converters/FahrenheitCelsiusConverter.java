@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * Konvertiert Temperaturen von Fahrenheit nach Celsius.
  */
+@SuppressWarnings("PMD.GuardLogStatement")
 public class FahrenheitCelsiusConverter extends Converter<Double> {
 
   /**
@@ -32,6 +33,7 @@ public class FahrenheitCelsiusConverter extends Converter<Double> {
    * Standardkonstruktor. Protokolliert die Erstellung einer neuen Instanz.
    */
   public FahrenheitCelsiusConverter() {
+    super();
     LOGGER.info("Neue Instanz von {}", this.getClass().getSimpleName());
   }
 
@@ -43,21 +45,22 @@ public class FahrenheitCelsiusConverter extends Converter<Double> {
    */
   @Override
   public Double convert(final Double input) {
+    final Double result;
     try {
       // Umrechnung von Fahrenheit in Celsius
-      Double ergebnis = (input - OFFSET) * FAKTOR_ZAEHLER / FAKTOR_NENNER;
+      result = (input - OFFSET) * FAKTOR_ZAEHLER / FAKTOR_NENNER;
       LOGGER.info(
               "{} Fahrenheit wurde zu {}° Celsius konvertiert",
               input,
-              ergebnis);
-      return ergebnis;
-    } catch (Exception e) {
+              result);
+    } catch (NumberFormatException e) {
       // Fehlerbehandlung und Logging bei einer Ausnahme
       LOGGER.error(
               "Fehler bei der Umrechnung von {} Fahrenheit",
               input,
               e);
-      return null;
+      throw e;
     }
+    return result;
   }
 }

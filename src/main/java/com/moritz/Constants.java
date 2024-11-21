@@ -2,12 +2,12 @@ package com.moritz;
 
 /**
  * Konstanten zur Steuerung von Konvertern.
+ * Checkstyle heult rum, dass die Konstanten in eine
+ * eigene Klassen sollen - PMD meckert, dass Sie es nicht sollen  -
+ * ja was denn nun?
  */
+@SuppressWarnings("PMD.DataClass")
 public final class Constants {
-
-  private Constants() {
-      // Verhindert die Instanziierung
-  } 
 
   /**
    * Menüoption zum Beenden des Programms.
@@ -17,12 +17,12 @@ public final class Constants {
   /**
    * Menüoption für die Konvertierung von Celsius in Fahrenheit.
    */
-  public static final int CELSIUS_TO_FAHRENHEIT = 1;
+  public static final int C_TO_F = 1;
 
   /**
    * Menüoption für die Konvertierung von Fahrenheit in Celsius.
    */
-  public static final int FAHRENHEIT_TO_CELSIUS = 2;
+  public static final int F_TO_C = 2;
 
   /**
    * Menüoption für die Konvertierung von Meter in Fuß.
@@ -33,4 +33,14 @@ public final class Constants {
    * Menüoption für die Konvertierung von Fuß in Meter.
    */
   public static final int FOOT_TO_METER = 4;
+
+  private Constants() {
+      // Verhindert die Instanziierung
+  } 
+  
+  public static int getExitProgram() {
+    return EXIT_PROGRAM;
+  } 
+
+  
 }

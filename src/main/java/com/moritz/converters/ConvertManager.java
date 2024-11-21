@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * Klasse um eine einfache Implementierung der Konverter zu gewährleisten.
  */
+@SuppressWarnings("PMD.GuardLogStatement")
 public class ConvertManager {
 
   /**
@@ -43,6 +44,7 @@ public class ConvertManager {
    * Konvertiert den gegeben Wert.
    *
    * @param input Inputwert
+   * 
    * @return Der konvertierte Wert
    */
   public Double convert(final Double input) {
