@@ -12,6 +12,9 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+       
+        <checkstyle.config.location>src/main/resources/google_checks.xml</checkstyle.config.location>  
+                
     </properties>
 
     <!-- Dependencies -->
@@ -26,6 +29,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -53,11 +57,6 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.24.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.oshi</groupId>
-            <artifactId>oshi-core</artifactId>
-            <version>6.4.1</version>
         </dependency>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
@@ -128,11 +127,15 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>    
                 <version>3.5.0</version>    
                 <configuration>        
-                    <configLocation></configLocation>        
-                    <failOnViolation>true</failOnViolation>    
+                    <configLocation>./src/main/resources/google_checks.xml</configLocation>        
+                    <consoleOutput>true</consoleOutput>
+                     <failsOnError>true</failsOnError>
+                  
+                   <linkXRef>false</linkXRef>
                 </configuration>    
                 <executions>        
                     <execution>            
+                        <id>validate</id>
                         <phase>validate</phase>            
                         <goals>                
                             <goal>check</goal>            
@@ -153,6 +156,14 @@
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>4.8.6.4</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>  
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <!-- Exec Plugin -->
@@ -166,7 +177,6 @@
             </plugin>
         </plugins>
     </build>
-
 
     <!-- Profiles -->
     <profiles>
