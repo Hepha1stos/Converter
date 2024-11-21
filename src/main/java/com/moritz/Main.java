@@ -2,7 +2,6 @@ package com.moritz;
 
 
 
-
 import com.moritz.converters.CelsiusFahrenheitConverter;
 import com.moritz.converters.ConvertManager;
 import com.moritz.converters.FahrenheitCelsiusConverter;
