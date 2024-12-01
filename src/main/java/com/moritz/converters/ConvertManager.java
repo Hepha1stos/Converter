@@ -41,6 +41,15 @@ public class ConvertManager {
   }
 
   /**
+   * Gibt den aktuellen Converter zurück.
+   */
+  public Converter<Double> getConverter() {
+    LOGGER.info("Return Converter {}", 
+        this.currentConverter.getClass().getSimpleName());
+    return this.currentConverter;
+  }
+
+  /**
    * Konvertiert den gegeben Wert.
    *
    * @param input Inputwert
