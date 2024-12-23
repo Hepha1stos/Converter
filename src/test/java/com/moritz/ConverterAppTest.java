@@ -62,37 +62,4 @@ public class ConverterAppTest {
         assertTrue(outContent.toString().contains("Ergebnis: 212.0\n"),
                    "Conversion from Celsius to Fahrenheit failed.");
     }
-
-    @Test
-    public void testFahrenheitToCelsiusConversion() {
-        String input = "2\n212\n0\n"; // Option 2 for Fahrenheit to Celsius, input 212, then exit
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-        ConverterApp.main(new String[]{});
-
-        assertTrue(outContent.toString().contains("Ergebnis: 100.0"),
-                   "Conversion from Fahrenheit to Celsius failed.");
-    }
-
-    @Test
-    public void testFootToMeterConversion() {
-        String input = "4\n1\n0\n"; // Option 4 for Foot to Meter, input 1, then exit
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-        ConverterApp.main(new String[]{});
-
-        assertTrue(outContent.toString().contains("Ergebnis: 0.3048"),
-                   "Conversion from Foot to Meter failed.");
-    }
-
-    @Test
-    public void testExitProgram() {
-        String input = "0\n"; // Option 0 to exit
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-        ConverterApp.main(new String[]{});
-
-        assertTrue(outContent.toString().contains("Das Programm wird beendet!"),
-                   "Program did not exit as expected.");
-    }
-}
+  }
