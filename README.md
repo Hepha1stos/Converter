@@ -8,7 +8,7 @@ ConverterApp ist ein Java-basiertes Programm, das verschiedene Einheitenkonverti
 
 1. Klone das Repository:
     ```sh
-    git clone <repository-url>
+    git clone https://github.com/Hepha1stos/Converter.git
     cd converter
     ```
 
